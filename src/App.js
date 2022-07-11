@@ -1,8 +1,9 @@
 import './App.css';
 import {useState} from 'react'
-import { connect } from 'react-redux' 
+import { connect} from 'react-redux'
+import { incrementNumber, decrementNumber} from './actions/action'
 
-function App({count}) {
+function App({count,incrementNumber,decrementNumber}) {
 
   // const [number, setNumber] =useState(0)
 
@@ -29,9 +30,18 @@ function App({count}) {
 function mapStateTopProps(state){
 
   return {
-      count : state.count
+      count : state.count                 // count huwa lprops , state.count huwa dial reducer 
   }
 
 }
 
-export default connect(mapStateTopProps)(App);
+function mapDispatchToProps(dispatch){
+
+return  {
+  incrementNumber : () => dispatch(incrementNumber()),
+  decrementNumber : () => dispatch(decrementNumber())
+}
+
+}
+
+export default connect(mapStateTopProps,mapDispatchToProps)(App);
