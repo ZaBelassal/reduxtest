@@ -1,12 +1,12 @@
 import { INCREMENT,DECREMENT } from "../reducers/types"
 
 
-export const incrementnumber = () =>{
+export const incrementNumber = () =>{
     return {
         type: INCREMENT
     }
 }
-export const decrementnumber = () =>{
+export const decrementNumber = () =>{
     return {
         type: DECREMENT
     }
