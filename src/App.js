@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react'
+import { connect } from 'react-redux' 
 
-function App() {
+function App({count}) {
+
+  // const [number, setNumber] =useState(0)
+
+  // function incrementNumber(){
+    
+  //   setNumber(number+1)
+
+  // }
+
+  // function decrementNumber(){
+  //  setNumber(number-1)
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          Redux TUTO
+          <button onClick={incrementNumber}>Increment +</button>
+          {count}
+          <button onClick={decrementNumber}>Decrement -</button>
     </div>
   );
 }
 
-export default App;
+function mapStateTopProps(state){
+
+  return {
+      count : state.count
+  }
+
+}
+
+export default connect(mapStateTopProps)(App);
